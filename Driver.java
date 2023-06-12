@@ -1,16 +1,16 @@
 public class Driver {
-    public static void main(String [] args) {
-        Polynomial p = new Polynomial();
-        System.out.println(p.evaluate(3));
-        double [] c1 = {6,0,0,5};
-        Polynomial p1 = new Polynomial(c1);
-        double [] c2 = {0,-2,0,0,-9};
-        Polynomial p2 = new Polynomial(c2);
-        Polynomial s = p1.add(p2);
-        System.out.println("s(0.1) = " + s.evaluate(0.1));
-        if(s.hasRoot(1))
-            System.out.println("1 is a root of s");
-        else
-            System.out.println("1 is not a root of s");
+    public static void main(String [] args) throws Exception {
+        double [] coeffs_1 = {2.0, 3.0, -4.0};
+        int [] exp_1 = {0, 1, 3};
+        Polynomial p = new Polynomial(coeffs_1, exp_1);
+
+        double [] coeffs_2 = {3.0, 4.0, 2.0};
+        int [] exp_2 = {0, 1, 2};
+        Polynomial q = new Polynomial(coeffs_2, exp_2);
+
+        Polynomial r = q.add(p);
+        double sum = r.evaluate(3);
+
+        System.out.println("The sum is " + sum);     
     }
 }
